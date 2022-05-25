@@ -1,0 +1,15 @@
+<h1><strong><%= @restaurant.name %></strong></h1>
+
+<p><strong>Address:</strong><%= @restaurant.address %></p>
+<p><strong>Phone Number:</strong><%= @restaurant.phone_number %></p>
+<p><strong>Category:</strong><%= @restaurant.category %></p>
+
+<ul>
+  <%= @restaurant.reviews.each do |review| %>
+    <li><%= review.content %></li>
+    <li><%= link_to "Delete", review_path(review), method: :Delete %></li>
+  <%= end %>
+</ul>
+
+<%= link_to 'Homepage', restaurants_path %>
+<%= link_to 'Write a new review', new_reviews_path %>
